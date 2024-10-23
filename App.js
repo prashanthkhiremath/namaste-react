@@ -1,38 +1,29 @@
-/**
- * 
- * <div id="parent">
- *      <div id="child">
- *          <h1>I'm h1 tag</h1>
- *          <h2>I'm h2 tag</h2>
- *      </div
- *      <div id="parent2">
- *          <h1>I'm h2 tag</h1>
- *          <h2>I'm h2 tag</h2>
- *      </div>
- * </div>
- */
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-// const heading = React.createElement(
-//     'h1',
-//     {id: 'heading'}, 
-//     "Hello World from React!"
-// );
 
-// console.log(heading); // object
+// JSX - HTML like or XML like syntax.
+// JSX (traspiled before it reaches the JS) - PARCEL - Babel
 
-const parent = React.createElement("div", { id: "parent" }, [
-    React.createElement("div", { id: "child"}, [
-        React.createElement("h1", {}, "I'm an h1 tag"),
-        React.createElement("h2", {}, "I'm an h2 tag"),
-    ]),
-    React.createElement("div", { id: "child2"}, [
-        React.createElement("h1", {}, "I'm an h1 tag"),
-        React.createElement("h2", {}, "I'm an h2 tag"),
-    ]),
-])
+const elem = <span> React Element</span>;
+
+const Title = () =>  (
+    <h1 className="head" tabIndex="5">
+        {elem}
+        Namaste React using JSX
+    </h1>
+)
+
+// React Functional Component
+const HeadingComponent = () => (
+    <div id="container">
+        {Title()}
+        <Title/>
+        <Title></Title>
+        <h1>Namaste React Function Component</h1>
+    </div>
+); 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
 
-console.log(parent);
-root.render(parent);
+root.render(<HeadingComponent/>);
